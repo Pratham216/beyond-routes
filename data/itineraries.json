@@ -1,0 +1,117 @@
+[
+  {
+    "slug": "coffee-walk-activity-dessert",
+    "title": "Coffee → Walk → Activity → Dessert",
+    "durationMinutes": 180,
+    "tags": ["chill", "explore"],
+    "priceMinINR": 1999,
+    "priceMaxINR": 2999,
+    "stops": [
+      {
+        "order": 1,
+        "timeLabel": "00:00",
+        "title": "First cup, first story",
+        "placeType": "cultural",
+        "description": "Start with a signature cafe vibe and a calm reset."
+      },
+      {
+        "order": 2,
+        "timeLabel": "01:00",
+        "title": "Walk through hidden streets",
+        "placeType": "valley",
+        "description": "A scenic, low-crowd stroll that feels like discovery."
+      },
+      {
+        "order": 3,
+        "timeLabel": "02:00",
+        "title": "One small adventure",
+        "placeType": "forest",
+        "description": "A nature micro-activity with photogenic moments."
+      },
+      {
+        "order": 4,
+        "timeLabel": "02:45",
+        "title": "Dessert & slow goodbye",
+        "placeType": "cultural",
+        "description": "Close with something sweet and an easy afterglow."
+      }
+    ]
+  },
+  {
+    "slug": "art-courtyard-tea",
+    "title": "Art Spaces → Hidden Courtyard → Tea",
+    "durationMinutes": 180,
+    "tags": ["date", "explore"],
+    "priceMinINR": 2499,
+    "priceMaxINR": 3599,
+    "stops": [
+      {
+        "order": 1,
+        "timeLabel": "00:00",
+        "title": "Gallery warm-up",
+        "placeType": "cultural",
+        "description": "Start with an art space that sets the tone."
+      },
+      {
+        "order": 2,
+        "timeLabel": "01:00",
+        "title": "Hidden courtyard moment",
+        "placeType": "heritage",
+        "description": "Step into architecture that locals actually whisper about."
+      },
+      {
+        "order": 3,
+        "timeLabel": "02:00",
+        "title": "Tea with stories",
+        "placeType": "cultural",
+        "description": "A slow tea pause to trade best moments."
+      },
+      {
+        "order": 4,
+        "timeLabel": "02:45",
+        "title": "One last photo spot",
+        "placeType": "valley",
+        "description": "End with a wide view, like the city’s secret exhale."
+      }
+    ]
+  },
+  {
+    "slug": "night-glow-street-stories",
+    "title": "Night Glow → Street Stories",
+    "durationMinutes": 180,
+    "tags": ["date", "chill"],
+    "priceMinINR": 2199,
+    "priceMaxINR": 3199,
+    "stops": [
+      {
+        "order": 1,
+        "timeLabel": "00:00",
+        "title": "Glow start",
+        "placeType": "village",
+        "description": "A quiet place where night feels cinematic."
+      },
+      {
+        "order": 2,
+        "timeLabel": "01:00",
+        "title": "Street stories",
+        "placeType": "cultural",
+        "description": "Follow small signals: lights, music, and warm corners."
+      },
+      {
+        "order": 3,
+        "timeLabel": "02:00",
+        "title": "Ambient snack stop",
+        "placeType": "heritage",
+        "description": "A tucked-away bite with a premium vibe."
+      },
+      {
+        "order": 4,
+        "timeLabel": "02:45",
+        "title": "Night wind & nightcap",
+        "placeType": "beach",
+        "description": "End with something breezy (where available)."
+      }
+    ]
+  }
+]
+
