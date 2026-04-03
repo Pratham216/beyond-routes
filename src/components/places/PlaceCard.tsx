@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
+import SafeImage from "@/components/ui/SafeImage";
 import { type PlaceInput } from "@/lib/models/Place";
 
 function formatINR(n: number) {
@@ -13,8 +13,8 @@ export default function PlaceCard({ place }: { place: PlaceInput }) {
       className="group block overflow-hidden rounded-[2.5rem] border border-white/5 bg-white/[0.02] backdrop-blur-3xl transition-all duration-700 hover:border-white/10 hover:bg-white/[0.04] hover:shadow-[0_20px_60px_rgba(0,0,0,0.5)]"
     >
       <div className="relative aspect-video w-full overflow-hidden">
-        <Image
-          src={place.imageUrl || "https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&q=80&w=1200"}
+        <SafeImage
+          src={place.imageUrl || ""}
           alt={place.name}
           fill
           className="object-cover transition-transform duration-1000 group-hover:scale-110"

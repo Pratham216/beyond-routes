@@ -1,10 +1,8 @@
 import Link from "next/link";
-import Image from "next/image";
+import SafeImage from "@/components/ui/SafeImage";
 import { notFound } from "next/navigation";
 import { itineraries } from "@/lib/itineraries";
 import { normalizeHiddenGems } from "@/lib/hidden-gems/normalizeHiddenGems";
-
-const FALLBACK_IMAGE = "https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&q=80&w=1200";
 
 export default async function ExperiencePage({
   params,
@@ -22,8 +20,8 @@ export default async function ExperiencePage({
       <div className="group relative overflow-hidden rounded-[3rem] border border-white/5 bg-white/[0.02] p-8 backdrop-blur-3xl sm:p-12">
         {/* Featured Image */}
         <div className="relative mb-12 aspect-21/9 w-full overflow-hidden rounded-[2.5rem] border border-white/5 shadow-2xl">
-          <Image
-            src={place.imageUrl || FALLBACK_IMAGE}
+          <SafeImage
+            src={place.imageUrl || ""}
             alt={place.name}
             fill
             sizes="100vw"

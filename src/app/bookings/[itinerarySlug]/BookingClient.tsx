@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
+import SafeImage from "@/components/ui/SafeImage";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
@@ -117,7 +118,7 @@ export default function BookingClient({
       <div className="mx-auto w-full max-w-5xl px-6 pb-24 pt-56">
         <div className="group relative overflow-hidden rounded-[3rem] border border-white/5 bg-white/[0.02] p-8 backdrop-blur-3xl sm:p-12">
           <div className="relative mb-12 aspect-21/9 w-full overflow-hidden rounded-[2.5rem] border border-white/5 shadow-2xl">
-            <Image
+            <SafeImage
               src={heroImage}
               alt={itinerary.title}
               fill

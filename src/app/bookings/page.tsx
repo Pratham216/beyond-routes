@@ -5,7 +5,7 @@ import { Booking } from "@/lib/models/Booking";
 import { itineraries, generateDynamicItinerary } from "@/lib/itineraries";
 import { normalizeHiddenGems } from "@/lib/hidden-gems/normalizeHiddenGems";
 import { redirect } from "next/navigation";
-import Image from "next/image";
+import SafeImage from "@/components/ui/SafeImage";
 
 export default async function BookingsDashboard() {
   const session = await getServerSession(authOptions);
@@ -57,7 +57,7 @@ export default async function BookingsDashboard() {
                 const gem = normalizeHiddenGems().find(p => p.slug === gemSlug);
                 if (gem) {
                   itinerary = generateDynamicItinerary(gem);
-                  itinerary.image = gem.imageUrl || "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80&w=1200";
+                  itinerary.image = gem.imageUrl || "";
                 }
               }
               if (!itinerary) return null;
@@ -70,7 +70,7 @@ export default async function BookingsDashboard() {
                 <div key={bk._id.toString()} className="group relative overflow-hidden rounded-[2.5rem] border border-white/5 bg-white/[0.02] backdrop-blur-md shadow-2xl transition-all hover:bg-white/[0.04] hover:border-white/10">
                   <div className="grid md:grid-cols-[280px_1fr] gap-6">
                     <div className="relative aspect-[4/3] md:aspect-auto md:h-full w-full overflow-hidden sm:rounded-l-[2.5rem]">
-                       <Image src={itinerary.image ?? "https://images.unsplash.com/photo-1506461883276-594a12b11cf3?auto=format&fit=crop&q=80&w=800"} alt={itinerary.title} fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
+                       <SafeImage src={itinerary.image || ""} alt={itinerary.title} fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
                        <div className="absolute inset-0 bg-linear-to-r from-black/40 to-transparent" />
                        <div className="absolute top-4 left-4 rounded-full bg-black/60 px-4 py-2 backdrop-blur-md text-[9px] font-black uppercase tracking-widest text-primary border border-white/10">
                          {isConfirmed ? "Confirmed" : "Processing"}

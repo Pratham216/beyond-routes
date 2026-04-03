@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import Image from "next/image";
+import SafeImage from "@/components/ui/SafeImage";
 import { Coffee, Map, Image as ImageIcon, Cake } from "lucide-react";
 
 const fadeUp = {
@@ -21,7 +21,7 @@ export default function Home() {
       <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden pt-56 pb-20">
         {/* Full-Screen Background Image */}
         <div className="absolute inset-0 z-0 scale-105 animate-[pulse_10s_ease-in-out_infinite] blur-[1px]">
-          <Image
+          <SafeImage
             src="https://images.unsplash.com/photo-1506461883276-594a12b11cf3?auto=format&fit=crop&q=80&w=2000"
             alt="Scenic India landscape"
             fill
@@ -99,7 +99,7 @@ export default function Home() {
             Vibe check your next <span className="italic text-white/40">escape.</span>
           </h3>
           <p className="mt-6 max-w-2xl text-lg font-medium leading-relaxed text-white/50">
-            Pick your poison. We’ve surfaced high-res gems with 3‑hour
+            Pick your poison. We’ve surfaced hidden gems with 3‑hour
             itineraries attached to every single one.
           </p>
         </motion.div>
@@ -119,7 +119,7 @@ export default function Home() {
               transition={{ delay: idx * 0.1, duration: 0.8 }}
               className="group relative aspect-[4/5] overflow-hidden rounded-[3rem] border border-white/5 bg-white/5 transition-all duration-700 hover:scale-[1.02]"
             >
-              <Image
+              <SafeImage
                 src={c.img}
                 alt={c.title}
                 fill
@@ -203,7 +203,7 @@ export default function Home() {
       {/* Community Section */}
       <section className="relative flex min-h-[60vh] flex-col items-center justify-center overflow-hidden py-32">
         <div className="absolute inset-0 z-0 text-center">
-          <Image
+          <SafeImage
             src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&q=80&w=2000"
             alt="Community"
             fill

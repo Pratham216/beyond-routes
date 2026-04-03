@@ -142,17 +142,77 @@ const TYPE_TO_PLACE_TYPE: Record<string, PlaceInput["placeType"]> = {
   Geology: "heritage",
 };
 
-const PLACE_TYPE_IMAGES: Record<PlaceInput["placeType"], string> = {
-  hill: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=800",
-  mountain: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=800",
-  beach: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800",
-  village: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=800",
-  cultural: "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&q=80&w=800",
-  heritage: "https://images.unsplash.com/photo-1548013146-72479768b921?auto=format&fit=crop&q=80&w=800",
-  forest: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=800",
-  valley: "https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&q=80&w=800",
-  cave: "https://images.unsplash.com/photo-1502726299822-6f583f972e02?auto=format&fit=crop&q=80&w=800",
-  island: "https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?auto=format&fit=crop&q=80&w=800",
+const PLACE_TYPE_IMAGE_POOLS: Record<PlaceInput["placeType"], string[]> = {
+  hill: [
+    "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=1200",
+    "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&q=80&w=1200",
+    "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&q=80&w=1200",
+    "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=1200",
+    "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&q=80&w=1200",
+  ],
+  mountain: [
+    "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=1200",
+    "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&q=80&w=1200",
+    "https://images.unsplash.com/photo-1483721310020-03333e577078?auto=format&fit=crop&q=80&w=1200",
+    "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&q=80&w=1200",
+    "https://images.unsplash.com/photo-1454496522488-7a8e488e8606?auto=format&fit=crop&q=80&w=1200",
+  ],
+  beach: [
+    "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200",
+    "https://images.unsplash.com/photo-1473116763249-2faaef81ccda?auto=format&fit=crop&q=80&w=1200",
+    "https://images.unsplash.com/photo-1501959915551-4e8b0d2f5d9d?auto=format&fit=crop&q=80&w=1200",
+    "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&q=80&w=1200",
+    "https://images.unsplash.com/photo-1493558103817-58b2924bce98?auto=format&fit=crop&q=80&w=1200",
+  ],
+  village: [
+    "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=1200",
+    "https://images.unsplash.com/photo-1530878902700-5ad4f9e4c318??auto=format&fit=crop&q=80&w=1200",
+    "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&q=80&w=1200",
+    "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=1200",
+    "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&q=80&w=1200",
+  ],
+  cultural: [
+    "https://images.unsplash.com/photo-1519267126373-acc2bc994784?auto=format&fit=crop&q=80&w=1200", // Swapped Taj Mahal for Hampi
+    "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&q=80&w=1200",
+    "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&q=80&w=1200",
+    "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&q=80&w=1200",
+    "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&q=80&w=1200",
+  ],
+  heritage: [
+    "https://images.unsplash.com/photo-1601825915519-0dd631a2d58d??auto=format&fit=crop&q=80&w=1200", // qE6BF2CA0I0 (Chand Baori)
+    "https://images.unsplash.com/photo-1616428090830-59bd09d9f272??auto=format&fit=crop&q=80&w=1200", // Amer Fort
+    "https://images.unsplash.com/photo-1606207703250-3954855894cd??auto=format&fit=crop&q=80&w=1200", // R9EjMAM0agY (Hampi)
+    "https://images.unsplash.com/photo-1582510003544-4d00b7f74220??auto=format&fit=crop&q=80&w=1200", // 18i8kmonZWs (Qutub/Tower)
+    "https://images.unsplash.com/photo-1575980377979-86bcfaf7f3b4??auto=format&fit=crop&q=80&w=1200", // XCpAG-JK_JU (Hampi Water)
+  ],
+  forest: [
+    "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&q=80&w=1200",
+    "https://images.unsplash.com/photo-1473447198193-69ec0a38f5c9?auto=format&fit=crop&q=80&w=1200",
+    "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&q=80&w=1200",
+    "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&q=80&w=1200",
+    "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=1200",
+  ],
+  valley: [
+    "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=1200",
+    "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&q=80&w=1200",
+    "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&q=80&w=1200",
+    "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&q=80&w=1200",
+    "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&q=80&w=1200",
+  ],
+  cave: [
+    "https://images.unsplash.com/photo-1526779259212-756e4c0c4d0d?auto=format&fit=crop&q=80&w=1200",
+    "https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&q=80&w=1200",
+    "https://images.unsplash.com/photo-1523966211575-eb4a01e7dd51?auto=format&fit=crop&q=80&w=1200",
+    "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=1200",
+    "https://images.unsplash.com/photo-1473447198193-69ec0a38f5c9?auto=format&fit=crop&q=80&w=1200",
+  ],
+  island: [
+    "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200",
+    "https://images.unsplash.com/photo-1493558103817-58b2924bce98?auto=format&fit=crop&q=80&w=1200",
+    "https://images.unsplash.com/photo-1473116763249-2faaef81ccda?auto=format&fit=crop&q=80&w=1200",
+    "https://images.unsplash.com/photo-1501959915551-4e8b0d2f5d9d?auto=format&fit=crop&q=80&w=1200",
+    "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&q=80&w=1200",
+  ],
 };
 
 const BEST_TIME_RE =
@@ -306,8 +366,13 @@ function normalizeRawRow(row: string): PlaceInput {
     region,
   });
 
+  const slug = slugify(name);
+  const pool = PLACE_TYPE_IMAGE_POOLS[placeType];
+  const imageIndex = Math.abs(slug.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0)) % pool.length;
+  const imageUrl = pool[imageIndex];
+
   const normalized: PlaceInput = {
-    slug: slugify(name),
+    slug,
     name,
     state,
     region,
@@ -320,7 +385,7 @@ function normalizeRawRow(row: string): PlaceInput {
     whyPeopleDontKnow,
     priceMinINR,
     priceMaxINR,
-    imageUrl: PLACE_TYPE_IMAGES[placeType],
+    imageUrl,
   };
 
   return PlaceZod.parse(normalized);

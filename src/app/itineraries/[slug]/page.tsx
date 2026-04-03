@@ -1,11 +1,9 @@
 import Link from "next/link";
-import Image from "next/image";
+import SafeImage from "@/components/ui/SafeImage";
 import { notFound } from "next/navigation";
 import ThreeHourTimeline from "@/components/timeline/ThreeHourTimeline";
 import { itineraries, generateDynamicItinerary } from "@/lib/itineraries";
 import { normalizeHiddenGems } from "@/lib/hidden-gems/normalizeHiddenGems";
-
-const HERO_IMAGE_FALLBACK = "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=1200";
 
 export default async function ItineraryDetailPage({
   params,
@@ -15,14 +13,14 @@ export default async function ItineraryDetailPage({
   const { slug } = await params;
   
   let itinerary = itineraries.find((i) => i.slug === slug);
-  let heroImage = HERO_IMAGE_FALLBACK;
+  let heroImage = itinerary?.image || "";
 
   if (!itinerary && slug.endsWith("-bundle")) {
     const gemSlug = slug.replace("-bundle", "");
-    const gem = normalizeHiddenGems().find((p) => p.slug === gemSlug);
+    const gem = normalizeHiddenGems().find((p) => p.slug === slug.replace("-bundle", ""));
     if (gem) {
       itinerary = generateDynamicItinerary(gem);
-      heroImage = gem.imageUrl || HERO_IMAGE_FALLBACK;
+      heroImage = gem.imageUrl || "";
     }
   }
 
@@ -33,7 +31,7 @@ export default async function ItineraryDetailPage({
       <div className="group relative overflow-hidden rounded-[3rem] border border-white/5 bg-white/[0.02] p-8 backdrop-blur-3xl sm:p-12">
         {/* Cinematic Hero */}
         <div className="relative mb-12 aspect-21/9 w-full overflow-hidden rounded-[2.5rem] border border-white/5 shadow-2xl">
-          <Image
+          <SafeImage
             src={heroImage}
             alt={itinerary.title}
             fill
